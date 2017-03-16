@@ -1,0 +1,26 @@
+version: '2'
+services:
+  wordpress:
+    image: wordpress
+    container_name: ${CONTAINER_NAME_WP}
+    restart: always
+    links:
+      - mariadb:mysql
+    environment:
+      WORDPRESS_DB_PASSWORD: ${DB_PASSWORD}
+      VIRTUAL_HOST: ${URL}
+    expose:
+      - 80
+    volumes:
+      - ./html:/var/www/html
+    network_mode: bridge
+  mariadb:
+    image: mariadb
+      container_name: ${CONTAINER_NAME_DB}
+      restart: always
+      environment:
+        MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+        MYSQL_DATABASE: wordpress
+      volumes:
+        - ./database:/var/lib/mysql
+      network_mode: bridge
