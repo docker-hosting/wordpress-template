@@ -4,6 +4,7 @@ In order to use this template, just clone this repo or create a new file called 
 ```bash
 CONTAINER_NAME_WP=Wordpress-Template
 CONTAINER_NAME_DB=Database-Template
+CONTAINER_NAME_MAIL=Mail-Template
 URL=mysite.local
 DB_PASSWORD=someDatabasepassword
 ```
