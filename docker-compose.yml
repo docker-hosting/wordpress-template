@@ -26,42 +26,10 @@ services:
         volumes:
             - ./database:/var/lib/mysql
         networks:
-            - back-end
-    mail:
-        image: tvial/docker-mailserver:2.1
-        hostname: mail
-        domainname: ${URL}
-        container_name: ${CONTAINER_NAME_MAIL}
-        ports:
-            - "25:25"
-            - "143:143"
-            - "587:587"
-            - "993:993"
-        volumes:
-            - maildata:/var/mail
-            - mailstate:/var/mail-state
-            - ./mailconfig/:/tmp/docker-mailserver/
-        environment:
-            - ENABLE_SPAMASSASSIN=1
-            - ENABLE_CLAMAV=1
-            - ENABLE_FAIL2BAN=1
-            - ENABLE_POSTGREY=1
-            - ONE_DIR=1
-            - DMS_DEBUG=0
-        cap_add:
-            - NET_ADMIN
-        networks:
-            - back-end
-
-volumes:
-    maildata:
-        driver: local
-    mailstate:
-        driver: local
-
+            - backend
 networks:
     nginx-proxy:
         external:
             name: nginx-proxy
-    back-end:
+    backend:
         driver: bridge
