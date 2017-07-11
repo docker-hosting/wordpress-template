@@ -13,6 +13,7 @@ services:
             - VIRTUAL_HOST=${URL}
         volumes:
             - ./html:/var/www/html
+            - ./uploads.ini:/usr/local/etc/php/conf.d/uploads.ini
         networks:
             - nginx-proxy
             - backend
