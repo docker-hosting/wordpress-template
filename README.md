@@ -6,6 +6,7 @@ CONTAINER_NAME_WP=Wordpress-Template
 CONTAINER_NAME_DB=Database-Template
 URL=mysite.local
 DB_PASSWORD=someDatabasepassword
+EMAIL=your@email.com
 ```
 
 Then run `docker-compose up -d` and you can install your Wordpress website!
