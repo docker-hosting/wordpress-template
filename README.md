@@ -9,6 +9,8 @@ DB_PASSWORD=someDatabasepassword
 EMAIL=your@email.com
 ```
 
+In order to generate the Letsencrypt certificates automatically the first entry in URL (it's a comma-separated list) needs to be the root url of your site. E.g. "github.com" instead of "www.github.com".
+
 Then run `docker-compose up -d` and you can install your Wordpress website!
 
 In order to create your mail addresses head over to https://github.com/tomav/docker-mailserver, for creating aliases look at https://github.com/tomav/docker-mailserver/wiki/Configure-Aliases.
