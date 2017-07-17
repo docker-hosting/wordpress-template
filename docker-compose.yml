@@ -11,6 +11,8 @@ services:
         environment:
             - WORDPRESS_DB_PASSWORD=${DB_PASSWORD}
             - VIRTUAL_HOST=${URL}
+            - LETSENCRYPT_HOST=${URL}
+            - LETSENCRYPT_EMAIL=${EMAIL}
         volumes:
             - ./html:/var/www/html
             - ./uploads.ini:/usr/local/etc/php/conf.d/uploads.ini
