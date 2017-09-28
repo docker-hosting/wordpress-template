@@ -13,4 +13,4 @@ In order to generate the Letsencrypt certificates automatically the first entry 
 
 Then run `docker-compose up -d` and you can install your Wordpress website!
 
-In order to create your mail addresses head over to https://github.com/tomav/docker-mailserver, for creating aliases look at https://github.com/tomav/docker-mailserver/wiki/Configure-Aliases.
+In order to create your mail addresses head over to https://github.com/zixia/docker-simple-mail-forwarder.
