@@ -1,7 +1,7 @@
 version: '2'
 services:
     wordpress:
-        build: ./wordpress
+        image: dockerhosting/wordpress
         container_name: ${CONTAINER_NAME_WP}
         restart: always
         links:
@@ -15,12 +15,11 @@ services:
             - LETSENCRYPT_EMAIL=${EMAIL}
         volumes:
             - ./html:/var/www/html
-            - ./uploads.ini:/usr/local/etc/php/conf.d/uploads.ini
         networks:
             - nginx-proxy
             - backend
     mariadb:
-        image: mariadb
+        image: dockerhosting/mariadb
         container_name: ${CONTAINER_NAME_DB}
         restart: always
         environment:
