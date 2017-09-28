@@ -31,7 +31,7 @@ services:
         networks:
             - backend
     backup:
-        image: deitch/mysql-backup
+        image: dockerhosting/mysql-backup
         restart: always
         container_name: ${CONTAINER_NAME_DB}-backup
         links:
