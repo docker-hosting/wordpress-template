@@ -32,17 +32,19 @@ services:
     backup:
         image: dockerhosting/mysql-backup
         restart: always
-        container_name: ${CONTAINER_NAME_DB}-backup
+        container_name: ${CONTAINER_NAME_BACKUP}
         links:
             - mariadb:db
         volumes:
-            - ./db_backup:/db
+            - ./db_dump:/db
+            - ./html:/data
+            - ./backup-scripts/rename-and-add-wordpress-html.sh:/scripts.d/post-backup/rename-and-add-wordpress-html.sh
         environment:
             - DB_DUMP_TARGET=/db
             - DB_USER=root
             - DB_PASS=${DB_PASSWORD}
-            - DB_DUMP_FREQ=1440
-            - DB_DUMP_BEGIN=1406
+            - DB_DUMP_FREQ=10080
+            - DB_DUMP_BEGIN=0100
             - DB_NAMES=wordpress
 networks:
     nginx-proxy:
