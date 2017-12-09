@@ -38,6 +38,7 @@ services:
         volumes:
             - ./db_dump:/db
             - ./html:/data
+            - ./backups:/backups
             - ./backup-scripts/rename-and-add-wordpress-html.sh:/scripts.d/post-backup/rename-and-add-wordpress-html.sh
         environment:
             - DB_DUMP_TARGET=/db
