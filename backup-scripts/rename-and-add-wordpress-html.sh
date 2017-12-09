@@ -10,6 +10,10 @@ then
 
     # gzip html content while preserving permissions
     tar czpvf backup-${now}.tar.gz /data "${DUMPFILE}"
+    
+    # move file
+    mkdir -p /backups
+    mv backup-${now}.tar.gz /backups/
 else
     echo "ERROR: Backup file ${DUMPFILE} does not exist!"
 fi
